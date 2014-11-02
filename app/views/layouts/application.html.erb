@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mathpedia</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <title><%= full_title(yield :title) %></title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag    "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" %>
+  <%= javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="wrap">
+  	<%= render 'layouts/header' %>
+  	<%= yield %>  	
+  </div>
 
-<%= yield %>
-
+  <%= render 'layouts/footer' %>
 </body>
 </html>

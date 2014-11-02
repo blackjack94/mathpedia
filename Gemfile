@@ -15,7 +15,7 @@ group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'bullet'
-  gem 'rack-mini-profiler'
+  gem 'hirb'
 end
 
 group :production do
@@ -26,9 +26,6 @@ end
 gem 'figaro'
 #memcachier
 gem 'dalli'
-
-#bootstrap
-gem 'bootstrap-sass', '~> 3.3.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
