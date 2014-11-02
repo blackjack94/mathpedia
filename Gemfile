@@ -5,14 +5,11 @@ gem 'rails', '4.0.8'
 # basic gems
 gem 'pg'
 gem 'puma'
+gem 'sass-rails', '~> 4.0.2'
 gem 'jquery-rails'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
-
-group :assets do
-  gem 'sass-rails', '~> 4.0.2'
-  gem 'uglifier', '>= 1.3.0'
-  gem 'coffee-rails', '~> 4.0.0'
-end
 
 group :development do
   gem 'better_errors'
@@ -29,6 +26,9 @@ end
 gem 'figaro'
 #memcachier
 gem 'dalli'
+
+#bootstrap
+gem 'bootstrap-sass', '~> 3.3.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
