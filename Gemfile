@@ -26,6 +26,8 @@ end
 gem 'figaro'
 #memcachier
 gem 'dalli'
+#serving compressed files
+gem 'rack-zippy'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
