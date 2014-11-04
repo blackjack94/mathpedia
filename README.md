@@ -19,4 +19,4 @@ B. Quality-production app
 
 **IMPORTANT:** This source code is not complete and will be release on November 11th, 2014.
 
-**DISCLOSURE:** The front-end design is not mine, I contacted [Mr. Surguy](https://twitter.com/msurguy) for his permissions to use the [bootstrap](http://getbootstrap.com/) code of [laravel-tricks](http://www.laravel-tricks.com/).
+**DISCLOSURE:** The front-end design is not mine, I contacted [Mr. Surguy](https://twitter.com/msurguy) for his permissions to use the [bootstrap](http://getbootstrap.com/) code of [laravel-tricks](https://github.com/blackjack94/laravel-tricks/).
