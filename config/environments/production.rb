@@ -21,10 +21,11 @@ Mathpedia::Application.configure do
 
   # Puts ActionDispatch::Static in middleware stack which we are going to replace with
   # Rack::Zippy::AssetServer
-  #ADJUST by BLACKJACK94
+  # ADJUST by BLACKJACK94
   config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
+  # Adjust by Blackjack94
   config.assets.js_compressor = :uglifier
   config.assets.css_compressor = :sass
 
@@ -42,7 +43,7 @@ Mathpedia::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  #DISABLED by BLACKJACK94
+  # DISABLED by BLACKJACK94
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
@@ -55,7 +56,7 @@ Mathpedia::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production.
-  #ADDED by BLACKJACK94
+  # ADDED by BLACKJACK94
   config.cache_store = :dalli_store,
                     (ENV["MEMCACHIER_SERVERS"] || "").split(","),
                     {:username => ENV["MEMCACHIER_USERNAME"],
@@ -66,7 +67,8 @@ Mathpedia::Application.configure do
                     }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = "http://assets.example.com"
+  # ADJUST by BLACKJACK94
+  config.action_controller.asset_host = "http://d13iam57dikkc8.cloudfront.net"
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
