@@ -28,6 +28,8 @@ gem 'figaro'
 gem 'dalli'
 #serving compressed files
 gem 'rack-zippy'
+#using new relic
+gem 'newrelic_rpm'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
