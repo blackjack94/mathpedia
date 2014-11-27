@@ -28,5 +28,6 @@ module Mathpedia
     #ADDED BY BLACKJACK94
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     ENV['RAILS_CACHE_ID'] = `git log --pretty=format:%h -n1`.strip
+    GC::Profiler.enable
   end
 end
