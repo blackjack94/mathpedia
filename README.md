@@ -1,22 +1,27 @@
 # MathPedia
 
-This is the source code for the [MathPedia site](http://www.mathpedia.vn/). Some technical features:
+This is the source code for the [MathPedia site](http://www.mathpedia.vn/):
 
-A. Tools
+A. FEATUREs
+1. Sharing & Collecting PROBLEMs
+2. Hosting and Joining CONTESTs
+3. SUBMIT & GRADING Online
+4. ELO-based ranking algorithm
 
-1. Using Puma as a web-server on Heroku
-2. Packed by Postgresql in development
-3. Amazon S3 & Cloudfront for serving assets
-4. New Relic for tracking performance
+B. STACK
 
-B. Quality-production app
+5. Puma @Cedar-14
+6. PostgreSQL & Memcached
+7. Amazon S3 & Cloudfront
+8. New Relic
 
-5. Nice Bootstrap & AJAX (plus a medium-like editor)
-6. Avoid major security holes (XSS, CSRF, SQL Injection)
-7. Faster site by efficient DB queries & Caching
-8. Elo-based ranking algorithm
+C. PRODUCTION-QUALITY
+
+9. Nice Bootstrap & AJAX
+10. Avoid major security holes (XSS, CSRF, SQL Injection)
+11. Faster site by efficient DB & Caching
 
 
-**IMPORTANT:** This source code is not complete and will be release on November 20th, 2014.
+**IMPORTANT:** This source code is not complete and will be release on December 8th, 2014.
 
 **DISCLOSURE:** The front-end design is not mine, I contacted [Mr. Surguy](https://twitter.com/msurguy) for his permissions to use the [bootstrap](http://getbootstrap.com/) code of [laravel-tricks](https://github.com/blackjack94/laravel-tricks/).

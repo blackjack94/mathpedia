@@ -27,6 +27,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -36,6 +39,7 @@ GEM
     bullet (4.14.0)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
+    callsite (0.0.11)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -58,6 +62,10 @@ GEM
     json (1.8.1)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     mime-types (2.4.3)
     minitest (5.4.3)
     multi_json (1.10.1)
@@ -68,6 +76,8 @@ GEM
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-test (0.6.2)
       rack (>= 1.0)
     rack-zippy (1.2.1)
@@ -123,6 +133,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate (~> 2.6.5)
   better_errors
   bullet
   coffee-rails (~> 4.0.0)
@@ -130,6 +141,7 @@ DEPENDENCIES
   figaro
   hirb
   jquery-rails
+  meta_request
   newrelic_rpm
   pg
   puma

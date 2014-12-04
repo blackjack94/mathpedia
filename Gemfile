@@ -16,6 +16,8 @@ group :development do
   gem 'quiet_assets'
   gem 'bullet'
   gem 'hirb'
+  gem 'meta_request'
+  gem 'annotate', '~> 2.6.5'
 end
 
 group :production do

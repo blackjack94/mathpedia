@@ -449,3 +449,8 @@ h2.title-between {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+html.turbolinks-progress-bar::before {
+  background-color: red !important;
+  height: 5px !important;
+}
