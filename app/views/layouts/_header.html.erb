@@ -1,30 +1,31 @@
 <div class="navbar navbar-default navbar-static-top">
   <div class="container">
+
 		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".header-collapse">
+			<%= button_tag type: 'button', class: 'navbar-toggle', data: { toggle: 'collapse', target: '.header-collapse' } do %>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
-		  </button>
+			<% end %>
 
 	  	<%= link_to image_tag('logo.png', width: 207, height: 50), root_path, class: 'navbar-brand' %>
-	</div>
+		</div>
 
-	<div class="collapse navbar-collapse header-collapse">
-	  <ul class="nav navbar-nav">
-	  	<li class="<%= is_active('static_pages', 'magazine') %>"><%= link_to 'Magazine', magazine_path %></li>
-	  	<li class="<%= is_active('static_pages', 'training') %>"><%= link_to 'Training', training_path %></li>
-	  	<li class="<%= is_active('static_pages', 'library') %>"><%= link_to 'Library', library_path %></li>
-	  	<li><%= link_to 'Rankings', '#' %></li>
-	    <li class="visible-xs"><%= link_to 'Register', '#' %></li>
-	  	<li class="visible-xs"><%= link_to 'Login', '#' %></li>
-	  </ul>
+		<div class="collapse navbar-collapse header-collapse">
+		  <ul class="nav navbar-nav">
+		  	<li class="<%= is_active('static_pages', 'magazine') %>"><%= link_to 'Magazine', magazine_path %></li>
+		  	<li class="<%= is_active('static_pages', 'training') %>"><%= link_to 'Training', training_path %></li>
+		  	<li class="<%= is_active('static_pages', 'library') %>"><%= link_to 'Library', library_path %></li>
+		  	<li><%= link_to 'Rankings', '#' %></li>
+		    <li class="visible-xs"><%= link_to 'Register', '#' %></li>
+		  	<li class="visible-xs"><%= link_to 'Login', '#' %></li>
+		  </ul>
 
-	  <div class="navbar-right hidden-xs">
-	  	<%= link_to 'Register', '#', class: 'btn btn-primary' %>
-	  	<%= link_to 'Login', '#', class: 'btn btn-primary' %>
-	  </div>
-	</div>
+		  <div class="navbar-right hidden-xs">
+		  	<%= link_to 'Register', '#', class: 'btn btn-primary' %>
+		  	<%= link_to 'Login', '#', class: 'btn btn-primary' %>
+		  </div>
+		</div>
 
   </div>
 </div>

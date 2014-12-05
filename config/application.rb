@@ -26,7 +26,7 @@ module Mathpedia
     # config.i18n.default_locale = :de
 
     #ADDED BY BLACKJACK94
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    # config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     ENV['RAILS_CACHE_ID'] = `git log --pretty=format:%h -n1`.strip
     GC::Profiler.enable
   end
