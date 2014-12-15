@@ -23,6 +23,6 @@ C. PRODUCTION-QUALITY
 11. Faster site by efficient DB & Caching
 
 
-**IMPORTANT:** This source code is not complete and will be release on December 8th, 2014.
+**IMPORTANT:** This source code is not complete and will be release on December 20th, 2014.
 
 **DISCLOSURE:** The front-end design is not mine, I contacted [Mr. Surguy](https://twitter.com/msurguy) for his permissions to use the [bootstrap](http://getbootstrap.com/) code of [laravel-tricks](https://github.com/blackjack94/laravel-tricks/).

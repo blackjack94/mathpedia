@@ -5,7 +5,7 @@ module ApplicationHelper
   	base_title = 'MathPedia'
 
   	if page_title.empty?
-  	  page_title = 'Ideas in Olympiads'
+  	  page_title = 'Olympiad Training'
   	end
 
   	"#{base_title} | #{page_title}"

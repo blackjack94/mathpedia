@@ -1,7 +1,6 @@
 Mathpedia::Application.routes.draw do
   root to: 'static_pages#home'
 
-  match '/magazine', to: 'static_pages#magazine', via: 'get'
   match '/training', to: 'static_pages#training', via: 'get'
   match '/library', to: 'static_pages#library', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'

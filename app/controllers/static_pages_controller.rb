@@ -3,10 +3,6 @@ class StaticPagesController < ApplicationController
     fresh_when "static_home"
   end
 
-  def magazine
-    fresh_when "static_magazine"
-  end
-
   def training
     fresh_when "static_training"
   end
