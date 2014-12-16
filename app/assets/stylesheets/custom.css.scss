@@ -1,3 +1,25 @@
 .highlight {
 	color: #FB503B;
 }
+
+//CAROUSEL STYLING
+// ===================
+.carousel-indicators {
+	bottom: 0;
+
+	.active {
+		background-color: #222;
+	}
+
+	li {
+		border-color: #222;
+	}
+}
+
+.carousel-inner > .item {
+		height: 450px;
+
+		> img {
+	    margin: 0 auto;
+	  }
+}

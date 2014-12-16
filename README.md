@@ -20,7 +20,7 @@ C. PRODUCTION-QUALITY
 
 9. Nice Bootstrap & AJAX
 10. Avoid major security holes (XSS, CSRF, SQL Injection)
-11. Faster site by efficient DB & Caching
+11. Faster site by efficient Query & Caching
 
 
 **IMPORTANT:** This source code is not complete and will be release on December 20th, 2014.

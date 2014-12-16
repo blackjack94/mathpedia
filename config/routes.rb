@@ -1,8 +1,6 @@
 Mathpedia::Application.routes.draw do
   root to: 'static_pages#home'
 
-  match '/training', to: 'static_pages#training', via: 'get'
-  match '/library', to: 'static_pages#library', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
