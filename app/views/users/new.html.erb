@@ -1,0 +1,52 @@
+<% provide :title, 'Đăng Ký' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-lg-push-4 col-md-6 col-md-push-3 col-sm-8 col-sm-push-2">
+      <div class="content-box register-form">
+
+        <h1 class="page-title">tham gia</h1>
+
+        <%= form_for @user, url: signup_post_path do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+
+          <div class="form-group">
+            <%= f.label :username, 'username', class: 'control-label' %>
+            <%= f.text_field :username, class: 'form-control', placeholder: 'Username' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :facebook, 'facebook', class: 'control-label' %>
+            <%= f.text_field :facebook, class: 'form-control', placeholder: 'www.facebook.com/abcdef' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :school, 'tên trường', class: 'control-label' %>
+            <%= f.text_field :school, class: 'form-control', placeholder: 'Your school' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password, 'password', class: 'control-label' %>
+            <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation, 'xác nhận password', class: 'control-label' %>
+            <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirmation' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit 'Đăng Ký!', class: 'btn btn-primary btn-block btn-login' %>
+          </div>
+        <% end %>
+        
+        <ul class="nav nav-list">
+          <li class="text-center">
+            <%= link_to 'Đã có Tài khoản?', '#' %>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
