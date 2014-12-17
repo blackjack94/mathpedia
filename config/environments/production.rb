@@ -90,4 +90,7 @@ Mathpedia::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  #ADDED BY BLACKJACK94
+  config.font_assets.origin = 'http://www.mathpedia.vn'
 end

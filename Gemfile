@@ -32,6 +32,8 @@ gem 'dalli'
 gem 'rack-zippy'
 #using new relic
 gem 'newrelic_rpm'
+#fixing glyphicons on Cloudfront
+gem 'font_assets'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
