@@ -17,13 +17,23 @@
 		  	<li><%= link_to 'Bảng Vàng', '#' %></li>
 		  	<li><%= link_to 'Thư viện', '#' %></li>
 		  	<li><%= link_to 'Ôn Tập', '#' %></li>
-		    <li class="visible-xs"><%= link_to 'Đăng Ký', signup_path %></li>
-		  	<li class="visible-xs"><%= link_to 'Đăng Nhập', '#' %></li>
+
+		  	<% if signed_in? %>
+			  	<li class="visible-xs"><%= link_to 'Profile', '#' %></li>
+			  	<li class="visible-xs"><%= link_to 'Signout', signout_path, method: :delete %></li>
+		  	<% else %>
+		  		<li class="visible-xs"><%= link_to 'Đăng Ký', signup_path %></li>
+			  	<li class="visible-xs"><%= link_to 'Đăng Nhập', signin_path %></li>
+		  	<% end %>
 		  </ul>
 
 		  <div class="navbar-right hidden-xs">
-		  	<%= link_to 'Đăng Ký', signup_path, class: 'btn btn-primary' %>
-		  	<%= link_to 'Đăng Nhập', '#', class: 'btn btn-primary' %>
+		  	<% if signed_in? %>
+		  		<%= render 'layouts/dropdown' %>			  	
+			  <% else %>
+					<%= link_to 'Đăng Ký', signup_path, class: 'btn btn-primary' %>
+			  	<%= link_to 'Đăng Nhập', signin_path, class: 'btn btn-primary' %>
+			  <% end %>
 		  </div>
 		</div>
 
