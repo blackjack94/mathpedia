@@ -5,6 +5,8 @@
 	  <% end %>
 
 	  <ul class="dropdown-menu">
+	  	<li class="<%= is_active('users', 'show') %>"><%= link_to 'Profile', user_path(current_user.username) %></li>
+	  	<li class="<%= is_active('users', 'edit') %>"><%= link_to 'Settings', edit_user_path(current_user.username) %></li>
 		  <li><%= link_to 'Logout', signout_path, method: :delete %></li>
 		</ul>
 	</li>

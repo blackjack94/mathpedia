@@ -26,8 +26,6 @@ module Mathpedia
     # config.i18n.default_locale = :de
 
     # ADDED BY BLACKJACK94
-    # DO NOT force locales validaiton
-    I18n.enforce_available_locales = false
     # config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     GC::Profiler.enable
   end

@@ -3,10 +3,7 @@ module ApplicationHelper
   #display titles on every pages
   def full_title page_title
   	base_title = 'MathPedia'
-
-  	if page_title.empty?
-  	  page_title = 'Olympiad Training'
-  	end
+  	page_title = 'Olympiad Training' if page_title.empty?
 
   	"#{base_title} | #{page_title}"
   end

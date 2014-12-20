@@ -19,7 +19,8 @@
 		  	<li><%= link_to 'Ôn Tập', '#' %></li>
 
 		  	<% if signed_in? %>
-			  	<li class="visible-xs"><%= link_to 'Profile', '#' %></li>
+			  	<li class="visible-xs <%= is_active('users', 'show') %>"><%= link_to 'Profile', user_path(current_user.username) %></li>
+			  	<li class="visible-xs <%= is_active('users', 'edit') %>"><%= link_to 'Settings', user_path(current_user.username) %></li>
 			  	<li class="visible-xs"><%= link_to 'Signout', signout_path, method: :delete %></li>
 		  	<% else %>
 		  		<li class="visible-xs"><%= link_to 'Đăng Ký', signup_path %></li>

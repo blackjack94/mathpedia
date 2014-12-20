@@ -19,8 +19,12 @@ module SessionsHelper
 #CURRENT_USER RELATED
 #=====================================================================
 	def current_user
-  	remember_token = User.digest(cookies[:remember_token])
-  	@current_user ||= User.find_by(remember_token: remember_token)
+    token = cookies[:remember_token]
+
+    unless token.nil?
+      remember_token = User.digest(token)
+      @current_user ||= User.find_by(remember_token: remember_token)
+    end
   end
 
   #check if a visitor is signed_in?

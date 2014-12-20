@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
 	#password											 
 	has_secure_password
-	validates :password, length: { minimum: 6 }
+	validates :password, length: { minimum: 6 }, unless: :no_password_provide
 
 	#information (no validation of facebook)
 	validates :school, presence: true
@@ -48,9 +48,15 @@ class User < ActiveRecord::Base
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 
+#PRIVATE
+#====================================================================
 	private
 		def create_remember_token
 			self.remember_token = User.digest(User.new_remember_token)
+		end
+
+		def no_password_provide
+			self.password.blank?
 		end
 
 end

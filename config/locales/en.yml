@@ -20,4 +20,25 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        school: "Tên Trường"
+        password_confirmation: "Xác nhận Password"
+    errors:
+      messages:
+        confirmation: "không khớp"
+      models:
+        user:
+          attributes:
+            username:
+              blank: "không thể trống"
+              too_short: "phải có ít nhất 2 ký tự"
+              too_long: "không được quá 50 ký tự"
+              invalid: 'chỉ nhận: a-Z, 0-9 và "_"'
+              taken: "đã tồn tại"
+            password:
+              blank: "không thể trống"
+              too_short: "phải có ít nhất 6 ký tự"
+            school:
+              blank: "không thể trống"

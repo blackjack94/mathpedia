@@ -1,11 +1,17 @@
 Mathpedia::Application.routes.draw do
 
+  #static pages
   root to: 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
 
+  #users
   match '/signup', to: 'users#new', via: 'get'
   match '/signup', to: 'users#create', via: 'post', as: 'signup_post'
+  match '/users/:username', to: 'users#show', via: 'get', as: 'user'
+  match '/users/:username/edit', to: 'users#edit', via: 'get', as: 'edit_user'
+  match '/users/:username/edit', to: 'users#update', via: 'patch', as: 'update_user'
 
+  #sessions
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signin', to: 'sessions#create', via: 'post', as: 'signin_post'
   match '/signout', to: 'sessions#destroy', via: 'delete'
