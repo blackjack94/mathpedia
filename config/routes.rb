@@ -2,19 +2,23 @@ Mathpedia::Application.routes.draw do
 
   #static pages
   root to: 'static_pages#home'
-  match '/about', to: 'static_pages#about', via: 'get'
+  get '/about', to: 'static_pages#about'
 
   #users
-  match '/signup', to: 'users#new', via: 'get'
-  match '/signup', to: 'users#create', via: 'post', as: 'signup_post'
-  match '/users/:username', to: 'users#show', via: 'get', as: 'user'
-  match '/users/:username/edit', to: 'users#edit', via: 'get', as: 'edit_user'
-  match '/users/:username/edit', to: 'users#update', via: 'patch', as: 'update_user'
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create', as: 'signup_post'
+
+  get '/users/:username', to: 'users#show', as: 'user'
+  get '/users/:username/edit', to: 'users#edit', as: 'edit_user'
+  patch '/users/:username/edit', to: 'users#update', as: 'update_user'
+
+  resources :users, only: [:index]
+  patch '/status', to: 'users#status'
 
   #sessions
-  match '/signin', to: 'sessions#new', via: 'get'
-  match '/signin', to: 'sessions#create', via: 'post', as: 'signin_post'
-  match '/signout', to: 'sessions#destroy', via: 'delete'
+  get '/signin', to: 'sessions#new'
+  post '/signin', to: 'sessions#create', as: 'signin_post'
+  delete '/signout', to: 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217074148) do
+ActiveRecord::Schema.define(version: 20141220133017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,13 @@ ActiveRecord::Schema.define(version: 20141217074148) do
     t.datetime "updated_at"
     t.string   "facebook"
     t.string   "school"
-    t.boolean  "admin",           default: false
-    t.boolean  "master",          default: false
-    t.integer  "status",          default: 0
+    t.boolean  "admin",               default: false
+    t.boolean  "master",              default: false
+    t.integer  "status",              default: 0
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["master"], name: "index_users_on_master", using: :btree

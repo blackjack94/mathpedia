@@ -1,0 +1,34 @@
+vi:
+  will_paginate:
+    previous_label: "<<"
+    next_label: ">>"
+  activerecord:
+    attributes:
+      user:
+        school: "Tên Trường"
+        password_confirmation: "Xác nhận Password"
+        avatar_content_type: "Kiểu file của Avatar"
+        avatar_file_size: "Dung lượng của Avatar"
+    errors:
+      messages:
+        confirmation: "không khớp"
+      models:
+        user:
+          attributes:
+            username:
+              blank: "không thể trống"
+              too_short: "phải có ít nhất 2 ký tự"
+              too_long: "không được quá 50 ký tự"
+              invalid: 'chỉ nhận: a-Z, 0-9 và "_"'
+              taken: "đã tồn tại"
+            password:
+              blank: "không thể trống"
+              too_short: "phải có ít nhất 6 ký tự"
+            school:
+              blank: "không thể trống"
+            avatar_content_type:
+              invalid: "phải là hình ảnh"
+            avatar_file_size:
+              less_than: "phải ít hơn 200KB"
+            avatar:
+              less_than: "phải ít hơn 200KB"

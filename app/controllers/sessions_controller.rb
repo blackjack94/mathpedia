@@ -11,23 +11,23 @@ class SessionsController < ApplicationController
 
   	if user && user.authenticate(params[:session][:password])
       key, message = {
-        pending: [:info, "<h4>PLEASE WAIT!</h4><p>We're processing your info.</p>"],
-        approved: [:success,"<h4>WELCOME TO MATHPEDIA!</h4><p>Joining contests and Win a Gold.</p>"],
-        blocked: [:danger, "<h4>WE'RE SORRY!</h4><p>Your account is blocked.</p>"] 
-      }[user.status.to_sym]
+        "pending" => [:info, "<h4>XIN CHỜ!</h4><p>Thông tin của Bạn đang được Xử lý!</p>"],
+        "approved" => [:success,"<h4>WELCOME TO MATHPEDIA!</h4><p>Hãy chọn một Bài thi và lấy HC Vàng nào!</p>"],
+        "blocked" => [:danger, "<h4>XIN LỖI!</h4><p>Tài khoản của bạn đã bị khoá.</p>"] 
+      }[user.status]
 
       flash[key] = message
       sign_in user if user.approved?
       redirect_to root_path
   	else
-  		@error = 'Wrong username or password!'
+  		@error = 'Sai username hoặc password!'
   		render :new
   	end
   end
 
   def destroy
-    sign_out
-    flash[:success] = "<h4>GOODBYE!</h4><p>See you next Contest.</p>"
+    sign_out current_user
+    flash[:success] = "<h4>TẠM BIỆT!</h4><p>Hẹn gặp lại trong Bài thi sau.</p>"
     redirect_to root_path
   end
 

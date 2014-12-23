@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
 	before_action :must_not_signed_in, only: [:new, :create]
-	before_action :must_signed_in, only: [:edit, :update]
+	before_action :must_signed_in, except: [:new, :create, :show]
 	before_action :must_own_it, only: [:edit, :update]
+	before_action :must_be_master, only: [:index, :status]
 
 	def new
 		@user = User.new
@@ -19,8 +20,26 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def index
+		username = params[:username].downcase if params[:username]
+		status = { 'pending' => 0, 'approved' => 1, 'blocked' => 2, 'master' => 'master' }[params[:status]]
+
+		if status.nil? || (status == 'master' && !current_user.admin?)
+			flash[:info] = "Trang này không tồn tại!"
+			redirect_to users_path(status: 'approved')
+		else
+			@users = User.filter(status, username).paginate(page: params[:page], per_page: 10).to_a
+			@blocked = true if status == 2
+		end
+	end
+
 	def show
 		@user = User.find_by(username: params[:username])
+		
+		if @user.nil?
+			flash[:danger] = "Tài khoản \"#{params[:username]}\" không tồn tại!"
+			redirect_to root_path
+		end
 	end
 
 	def edit
@@ -28,25 +47,45 @@ class UsersController < ApplicationController
 
 	def update
 		if @user.update_attributes(user_params)
-      flash[:success] = "Update success!"
+      flash[:success] = "Cập nhật thành công!"
       redirect_to edit_user_path(@user.username)
     else
       render :edit
     end
 	end
 
+	def status
+		user = User.find(params[:id])
+
+		if user.nil? || (params[:change] == 'demote' && !current_user.admin?)
+			flash[:info] = 'Làm bậy hả chú? Log lại rồi đó nha!'
+		else
+			user.change_status(params[:change])
+			sign_out(user) if params[:change] == 'block'
+		end
+
+		redirect_to users_path(status: params[:back])
+	end
+
 	private
 		def user_params
-			params.require(:user).permit(:username, :facebook, :school, :password, :password_confirmation)
+			params.require(:user).permit(:username, :facebook, :school, :avatar, :password, :password_confirmation)
 		end
 
 		def must_own_it
 			@user = User.find_by(username: params[:username])
 
 			unless current_user? @user
-        flash[:info] = "Please edit your profile!"
+        flash[:info] = "Đừng hack tài khoản của bạn khác nhe đồng chí!"
         redirect_to edit_user_path(current_user.username)
       end
+		end
+
+		def must_be_master
+			unless current_user.master?
+				flash[:info] = "Trang này không tồn tại!"
+				redirect_to root_path
+			end
 		end
 
 end

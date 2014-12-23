@@ -27,6 +27,8 @@ module Mathpedia
 
     # ADDED BY BLACKJACK94
     # config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    # DO NOT force locales validaiton
+    I18n.enforce_available_locales = false
     GC::Profiler.enable
   end
 end

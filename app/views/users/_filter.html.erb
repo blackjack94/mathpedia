@@ -1,0 +1,25 @@
+<div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+	<ul class="nav nav-pills">
+		<li class="<%= is_active?(users_path(status: 'approved', username: params[:username], page: params[:page])) %>">
+  		<%= link_to 'Đã nhận', users_path(status: 'approved') %>
+  	</li>
+  	<li class="<%= is_active?(users_path(status: 'pending', username: params[:username], page: params[:page])) %>">
+  		<%= link_to 'Đang chờ', users_path(status: 'pending') %>
+  	</li>
+  	<li class="<%= is_active?(users_path(status: 'blocked', username: params[:username], page: params[:page])) %>">
+  		<%= link_to 'Bị khoá', users_path(status: 'blocked') %>
+  	</li>
+		<% if current_user.admin? %>			
+	  	<li class="<%= is_active?(users_path(status: 'master', username: params[:username], page: params[:page])) %>">
+	  		<%= link_to 'Masters', users_path(status: 'master') %>
+	  	</li>
+		<% end %>
+	</ul>
+</div>
+
+<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+	<form>
+		<input type="hidden" name="status" value="<%= params[:status] %>">
+    <input type='text' class='form-control search-box' name='username' value='<%= params[:username] %>' placeholder='username'>
+  </form>
+</div>

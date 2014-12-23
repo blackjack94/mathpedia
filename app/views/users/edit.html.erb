@@ -1,13 +1,13 @@
-<% provide :title, 'Settings' %>
+<% provide :title, 'Chỉnh Sửa' %>
 
 <div class="container">
 
   <div class="row push-down">
     <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-      <h1 class="page-title">User settings</h1>
+      <h1 class="page-title">Chỉnh Sửa</h1>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-right">
-      <%= link_to 'Back to Profile', user_path(current_user.username), class: 'btn btn-primary' %>
+      <%= link_to 'Về lại Profile', user_path(current_user.username), class: 'btn btn-primary' %>
     </div>
   </div>
 
@@ -15,9 +15,9 @@
     <div class="col-lg-6 col-lg-push-3 col-md-6 col-md-push-3 col-sm-8 col-sm-push-2 col-xs-12">      
       <div class="content-box">
 
-        <h3 class="content-title">Account Settings</h3>
+        <h3 class="content-title">Thông tin Tài khoản</h3>
 
-        <%= form_for @user, url: update_user_path, method: :patch, html: { class: 'form-horizontal' } do |f| %>
+        <%= form_for @user, url: update_user_path, method: :patch, html: { multipart: true, class: 'form-horizontal' } do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
 
           <fieldset>
@@ -38,28 +38,40 @@
             <div class="form-group">
               <%= f.label :school, 'school', class: 'col-lg-4 control-label' %>
               <div class="col-lg-8">
-                <%= f.text_field :school, class: 'form-control', placeholder: 'your school' %>
+                <%= f.text_field :school, class: 'form-control', placeholder: 'tên trường' %>
               </div>
             </div>
 
             <div class="form-group">
-              <%= f.label :password, 'password', class: 'col-lg-4 control-label' %>              
+              <%= f.label :avatar, 'avatar', class: 'col-lg-4 control-label' %>              
               <div class="col-lg-8">
-                <%= f.password_field :password, class: 'form-control', placeholder: 'new password' %>
+                <%= image_tag f.object.avatar.url(:preview) %>
+
+                <div class="btn btn-sm btn-primary">
+                  <span class="btn-txt">Up avatar</span>
+                  <%= f.file_field :avatar %>
+                </div>
               </div>
             </div>
 
             <div class="form-group">
-              <%= f.label :password_confirmation, 'confirm password', class: 'col-lg-4 control-label' %>              
+              <%= f.label :password, 'password mới', class: 'col-lg-4 control-label' %>              
               <div class="col-lg-8">
-                <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'confirm password' %>
+                <%= f.password_field :password, class: 'form-control', placeholder: 'password mới' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation, 'xác nhận password', class: 'col-lg-4 control-label' %>              
+              <div class="col-lg-8">
+                <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'xác nhận password' %>
               </div>
             </div>
           
             <div class="form-group">
               <div class="col-lg-offset-7 col-lg-12">
                 <input class="btn btn-sm" type="reset" value="Reset Form">
-                <%= f.submit 'Update', class: 'btn btn-primary' %>
+                <%= f.submit 'Cập Nhật', class: 'btn btn-primary' %>
               </div>
             </div>
           </fieldset>
@@ -69,4 +81,15 @@
     </div>
   </div>
 
+<% provide :scripts do %>
+  <script>
+  $("form").submit(function() {
+    $(this).submit(function() {
+      return false;
+    });
+    $(this).find('input[type=submit]').attr('disabled', 'disabled').attr('value', 'Đang cập nhật... Vui lòng chờ!');
+    return true;
+  });
+  </script>
+<% end %>
 </div>

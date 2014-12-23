@@ -10,10 +10,10 @@ module SessionsHelper
   	user.update_attribute(:remember_token, User.digest(remember_token))
   end
 
-  def sign_out
+  def sign_out user
   	#new remember_token, delete old from cookies
-    current_user.update_attribute(:remember_token, User.digest(User.new_remember_token))
-    cookies.delete(:remember_token)
+    user.update_attribute(:remember_token, User.digest(User.new_remember_token))
+    cookies.delete(:remember_token) if current_user?(user)
   end
 
 #CURRENT_USER RELATED
@@ -42,7 +42,7 @@ module SessionsHelper
 	#SIGNED_IN ONLY
   def must_signed_in
     unless signed_in?
-      flash[:warning] = 'Please sign in!'
+      flash[:warning] = 'Vui lòng đăng nhập!'
       redirect_to signin_path
     end
   end

@@ -15,13 +15,21 @@
 		  <ul class="nav navbar-nav">
 		  	<li><%= link_to 'Tập Huấn', '#' %></li>
 		  	<li><%= link_to 'Bảng Vàng', '#' %></li>
-		  	<li><%= link_to 'Thư viện', '#' %></li>
+		  	<li><%= link_to 'Thư Viện', '#' %></li>
 		  	<li><%= link_to 'Ôn Tập', '#' %></li>
-
 		  	<% if signed_in? %>
-			  	<li class="visible-xs <%= is_active('users', 'show') %>"><%= link_to 'Profile', user_path(current_user.username) %></li>
-			  	<li class="visible-xs <%= is_active('users', 'edit') %>"><%= link_to 'Settings', user_path(current_user.username) %></li>
-			  	<li class="visible-xs"><%= link_to 'Signout', signout_path, method: :delete %></li>
+		  		<% if current_user.master? %>
+			  		<li class="<%= is_active?(users_path) %>">
+				  		<%= link_to 'Quản Lý', users_path(status: 'approved') %>
+				  	</li>
+				  <% end %>
+			  	<li class="visible-xs <%= is_active?(user_path(current_user.username)) %>">
+			  		<%= link_to 'Profile', user_path(current_user.username) %>
+			  	</li>
+			  	<li class="visible-xs <%= is_active?(edit_user_path(current_user.username)) %>">
+			  		<%= link_to 'Chỉnh Sửa', edit_user_path(current_user.username) %>
+			  	</li>
+			  	<li class="visible-xs"><%= link_to 'Thoát', signout_path, method: :delete %></li>
 		  	<% else %>
 		  		<li class="visible-xs"><%= link_to 'Đăng Ký', signup_path %></li>
 			  	<li class="visible-xs"><%= link_to 'Đăng Nhập', signin_path %></li>

@@ -17,5 +17,6 @@
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true, "data-turbolinks-eval" => false %>
   <%= javascript_include_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js", "data-turbolinks-eval" => false %>
+  <%= yield :scripts %>
 </body>
 </html>

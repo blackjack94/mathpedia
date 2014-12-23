@@ -1,0 +1,54 @@
+<% provide :title, 'Quản lý' %>
+
+<div class="container">
+	<!-- FILTER BY STATUS + USERNAME -->
+	<div class="row push-down">
+		<%= render 'filter' %>
+	</div>
+
+	<!-- USERS TABLE -->
+	<div class="row">
+		<div class="col-lg-12">
+			<table class="table">
+
+			  <thead>
+		    	<tr>
+			    	<th>avatar</th>
+						<th>username</th>
+						<th>facebook</th>
+						<th>Trường</th>
+						<th class="col-lg-3 text-right">action</th>
+		    	</tr>
+		   	</thead>
+
+		   	<tbody>
+		   		<%= render @users %>
+		    </tbody>
+
+			</table>
+		</div>
+	</div>
+
+	<!-- PAGINATION -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="text-center">
+				<%= will_paginate %>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<% if @blocked %>
+	<% provide :scripts do %>
+	  <script>
+	  $("#red-link").one("click", function() {
+    	$(this).click(function () { return false; });
+    	$(this).attr('disabled', 'disabled').text('Đang xoá...');
+    	$("#green-link").click(function () { return false; });
+    	$("#green-link").attr('disabled', 'disabled').text('Xin chờ!');
+		});
+	  </script>
+	<% end %>
+<% end %>

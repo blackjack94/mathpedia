@@ -36,3 +36,11 @@ gem 'newrelic_rpm'
 gem 'font_assets'
 #Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+#uploading images to Amazon S3
+gem 'paperclip'
+gem 'aws-sdk'
+
+#pagination
+gem 'will_paginate', '~> 3.0.6'
+gem 'bootstrap-will_paginate'

@@ -8,9 +8,9 @@ module ApplicationHelper
   	"#{base_title} | #{page_title}"
   end
 
-  #highlight current page
-  def is_active(controller, action)
-  	params[:action] == action && params[:controller] == controller ? "active" : nil
+  #highlight current page  
+  def is_active?(link_path)
+  	current_page?(link_path) ? "active" : nil
   end
 
 end

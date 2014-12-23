@@ -1,0 +1,11 @@
+<tr>
+	<td><%= image_tag user.avatar.url(:square), class: 'img-rounded' %></td>
+  <td><%= link_to user.username, user_path(user.username), target: '_blank' %></td>
+  <td><%= link_to user.facebook, "//#{user.facebook}", target: '_blank' %></td>
+  <td><%= user.school %></td>
+  <td>
+  	<div class="btn-group pull-right">
+      <%= action_links_for(params[:status], user).html_safe %>
+  	</div>
+  </td>
+</tr>

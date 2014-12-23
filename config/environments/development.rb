@@ -16,6 +16,18 @@ Mathpedia::Application.configure do
   config.cache_store = :mem_cache_store
   ENV['RAILS_CACHE_ID'] = `git log --pretty=format:%h -n1`.strip
 
+  #paperclip on S3
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['DEV_BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    },
+    :url => ':s3_alias_url',
+    :s3_host_alias => 'd2jhucfdykvhmb.cloudfront.net'
+  }
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

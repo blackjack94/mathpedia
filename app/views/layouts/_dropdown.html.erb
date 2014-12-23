@@ -1,13 +1,17 @@
 <ul class="nav">
 	<li class="dropdown">
 		<%= link_to '#', class: 'dropdown-toggle btn btn-primary', data: { toggle: 'dropdown' } do %>
-	    Profile <b class="caret"></b>
+	    <%= image_tag current_user.avatar.url(:thumb), class: 'user-avatar-mini' %> Profile <b class="caret"></b>
 	  <% end %>
 
 	  <ul class="dropdown-menu">
-	  	<li class="<%= is_active('users', 'show') %>"><%= link_to 'Profile', user_path(current_user.username) %></li>
-	  	<li class="<%= is_active('users', 'edit') %>"><%= link_to 'Settings', edit_user_path(current_user.username) %></li>
-		  <li><%= link_to 'Logout', signout_path, method: :delete %></li>
+	  	<li class="<%= is_active?(user_path(current_user.username)) %>">
+	  		<%= link_to 'Profile', user_path(current_user.username) %>
+	  	</li>	  	
+	  	<li class="<%= is_active?(edit_user_path(current_user.username)) %>">
+	  		<%= link_to 'Chỉnh Sửa', edit_user_path(current_user.username) %>
+	  	</li>	  	
+		  <li><%= link_to 'Thoát', signout_path, method: :delete %></li>
 		</ul>
 	</li>
 </ul>
