@@ -7,10 +7,10 @@
 	  <ul class="dropdown-menu">
 	  	<li class="<%= is_active?(user_path(current_user.username)) %>">
 	  		<%= link_to 'Profile', user_path(current_user.username) %>
-	  	</li>	  	
+	  	</li>
 	  	<li class="<%= is_active?(edit_user_path(current_user.username)) %>">
 	  		<%= link_to 'Chỉnh Sửa', edit_user_path(current_user.username) %>
-	  	</li>	  	
+	  	</li>
 		  <li><%= link_to 'Thoát', signout_path, method: :delete %></li>
 		</ul>
 	</li>

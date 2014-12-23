@@ -5,4 +5,7 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
+  etag { flash }
+  etag { current_user }
+
 end

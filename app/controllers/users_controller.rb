@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
+		fresh_when [@user, form_authenticity_token]
 	end
 
 	def create
@@ -40,9 +41,12 @@ class UsersController < ApplicationController
 			flash[:danger] = "Tài khoản \"#{params[:username]}\" không tồn tại!"
 			redirect_to root_path
 		end
+
+		fresh_when(@user)
 	end
 
 	def edit
+		fresh_when(form_authenticity_token)
 	end
 
 	def update

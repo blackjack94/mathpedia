@@ -9,7 +9,7 @@
   	<li class="<%= is_active?(users_path(status: 'blocked', username: params[:username], page: params[:page])) %>">
   		<%= link_to 'Bị khoá', users_path(status: 'blocked') %>
   	</li>
-		<% if current_user.admin? %>			
+		<% if current_user.admin? %>
 	  	<li class="<%= is_active?(users_path(status: 'master', username: params[:username], page: params[:page])) %>">
 	  		<%= link_to 'Masters', users_path(status: 'master') %>
 	  	</li>

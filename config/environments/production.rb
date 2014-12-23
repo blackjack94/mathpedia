@@ -66,6 +66,18 @@ Mathpedia::Application.configure do
                      :socket_failure_delay => 0.2
                     }
 
+  #paperclip on S3
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    },
+    :url => ':s3_alias_url',
+    :s3_host_alias => 'd2pq577dx1mpeb.cloudfront.net'
+  }
+
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # ADJUST by BLACKJACK94
   config.action_controller.asset_host = "http://d13iam57dikkc8.cloudfront.net"

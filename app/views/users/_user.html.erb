@@ -1,3 +1,4 @@
+<% cache [user, params[:status]] do %>
 <tr>
 	<td><%= image_tag user.avatar.url(:square), class: 'img-rounded' %></td>
   <td><%= link_to user.username, user_path(user.username), target: '_blank' %></td>
@@ -9,3 +10,4 @@
   	</div>
   </td>
 </tr>
+<% end %>

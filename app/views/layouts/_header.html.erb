@@ -38,7 +38,7 @@
 
 		  <div class="navbar-right hidden-xs">
 		  	<% if signed_in? %>
-		  		<%= render 'layouts/dropdown' %>			  	
+		  		<%= render 'layouts/dropdown' %>
 			  <% else %>
 					<%= link_to 'Đăng Ký', signup_path, class: 'btn btn-primary' %>
 			  	<%= link_to 'Đăng Nhập', signin_path, class: 'btn btn-primary' %>

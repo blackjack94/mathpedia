@@ -1,5 +1,6 @@
-<% provide :title, 'Profile' %>
+<% cache @user do %>
 
+<% provide :title, 'Profile' %>
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
@@ -31,3 +32,4 @@
     </div>
   </div>
 </div>
+<% end %>
