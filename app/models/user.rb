@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
 
 	before_create :create_remember_token
 	before_save { username.downcase! }
+	after_commit :invalidate_cache
 
 	enum status: [ :pending, :approved, :blocked ]
 
@@ -95,6 +96,11 @@ class User < ActiveRecord::Base
 
 		def no_password_provide
 			self.password.blank?
+		end
+
+		def invalidate_cache
+			Rails.cache.delete('users-count')
+			Rails.cache.delete('users-max-updated-at')
 		end
 
 end

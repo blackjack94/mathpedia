@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   	if user && user.authenticate(params[:session][:password])
       key, message = {
         "pending" => [:info, "<h4>XIN CHỜ!</h4><p>Thông tin của Bạn đang được Xử lý!</p>"],
-        "approved" => [:success,"<h4>WELCOME TO MATHPEDIA!</h4><p>Hãy tham gia thi và lấy chiếc HC Vàng!!</p>"],
+        "approved" => [:success,"<h4>WELCOME TO MATHPEDIA</h4><p>Hãy tham gia thi và lấy chiếc HC Vàng!</p>"],
         "blocked" => [:danger, "<h4>XIN LỖI!</h4><p>Tài khoản của bạn đã bị khoá.</p>"] 
       }[user.status]
 

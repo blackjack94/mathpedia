@@ -31,6 +31,8 @@ class UsersController < ApplicationController
 		else
 			@users = User.filter(status, username).paginate(page: params[:page], per_page: 10).to_a
 			@blocked = true if status == 2
+
+			fresh_when etag: users_cache_key
 		end
 	end
 

@@ -8,4 +8,20 @@ class ApplicationController < ActionController::Base
   etag { flash }
   etag { current_user }
 
+  helper_method :users_cache_key
+
+  def users_cache_key
+  	"users/all-#{users_count}-#{users_max_updated_at}"
+  end
+
+  def users_count
+  	Rails.cache.fetch("users-count") { User.count }
+  end
+
+  def users_max_updated_at
+  	Rails.cache.fetch("users-max-updated-at") do
+  		User.maximum(:updated_at).try(:utc).try(:to_s, :number)
+  	end
+  end
+
 end
