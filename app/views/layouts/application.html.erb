@@ -10,13 +10,23 @@
   <div id="wrap">
   	<%= render 'layouts/header' %>
     <%= render 'shared/flash' %>
-  	<%= yield %>  	
+  	<%= yield %>
   </div>
 
   <%= render 'layouts/footer' %>
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true, "data-turbolinks-eval" => false %>
   <%= javascript_include_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js", "data-turbolinks-eval" => false %>
+
+  <%= javascript_include_tag "//code.jquery.com/ui/1.10.3/jquery-ui.js" %>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+  <%= javascript_include_tag "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML.js" %>
+  <%= javascript_include_tag "writemaths", "data-turbolinks-track" => true %>
+
   <%= yield :scripts %>
 </body>
 </html>

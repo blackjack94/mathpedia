@@ -52,4 +52,12 @@ module SessionsHelper
     redirect_to root_path if signed_in?
   end
 
+  #MASTER ONLY
+  def must_be_master
+    unless current_user.master?
+      flash[:info] = "Trang này không tồn tại!"
+      redirect_to root_path
+    end
+  end
+
 end

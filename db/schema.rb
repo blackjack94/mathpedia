@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141224165811) do
+ActiveRecord::Schema.define(version: 20141228112313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assets", force: true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "domains", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "problems", force: true do |t|
+    t.string   "title"
+    t.text     "statement"
+    t.text     "solution"
+    t.integer  "status",     default: 0
+    t.integer  "difficulty", default: 0
+    t.integer  "domain_id"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "problems", ["author_id"], name: "index_problems_on_author_id", using: :btree
+  add_index "problems", ["domain_id"], name: "index_problems_on_domain_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -33,10 +63,10 @@ ActiveRecord::Schema.define(version: 20141224165811) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "users", ["master"], name: "index_users_on_master", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
-  add_index "users", ["status"], name: "index_users_on_status", using: :btree
   add_index "users", ["updated_at"], name: "index_users_on_updated_at", using: :btree
+  add_index "users", ["username", "master"], name: "index_users_on_username_and_master", using: :btree
+  add_index "users", ["username", "status"], name: "index_users_on_username_and_status", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

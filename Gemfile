@@ -18,6 +18,7 @@ group :development do
   gem 'hirb'
   gem 'meta_request'
   gem 'annotate', '~> 2.6.5'
+  gem 'lol_dba'
 end
 
 group :production do

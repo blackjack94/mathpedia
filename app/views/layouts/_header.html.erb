@@ -16,7 +16,7 @@
 		  	<li><%= link_to 'Tập Huấn', '#' %></li>
 		  	<li><%= link_to 'Bảng Vàng', '#' %></li>
 		  	<li><%= link_to 'Thư Viện', '#' %></li>
-		  	<li><%= link_to 'Ôn Tập', '#' %></li>
+		  	<li><%= link_to 'Ôn Tập', new_problem_path %></li>
 		  	<% if signed_in? %>
 		  		<% if current_user.master? %>
 			  		<li class="<%= is_active?(users_path) %>">

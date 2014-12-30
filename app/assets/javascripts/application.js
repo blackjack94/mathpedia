@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require medium-editor
+//= require medium-editor-insert-plugin
+//= require medium-editor-insert-images
+//= require rangy-core
 //= require turbolinks
 
 Turbolinks.enableProgressBar();

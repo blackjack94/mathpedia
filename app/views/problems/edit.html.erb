@@ -1,0 +1,105 @@
+<% provide :title, 'Edit Problem' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-push-2 col-md-8 col-md-push-2 col-sm-12 col-xs-12">
+      <div class="content-box">
+
+        <h1 class="page-title">Edit Problem</h1>
+        
+        <%= form_for @problem, url: update_problem_path, html: { class: 'form-vertical', id: 'edit_problem' } do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+
+          <div class="form-group">
+            <%= f.label :title, 'Name' %>
+            <%= f.text_field :title, class: 'form-control', placeholder: 'Problem name' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :statement, 'Problem Description' %>
+            <hr>
+
+            <%= f.text_field :statement, class: 'form-control editable', placeholder: 'Problem description' %>
+            <%= f.hidden_field :statement, id: 'statement_field' %>
+          </div>
+
+          <hr>          
+          <div class="row">
+            <div class="col-sm-4 col-sm-offset-8">
+              <%= link_to 'Preview', '#', class: 'btn btn-default', id: 'preview_button' %>
+              <%= f.submit 'Save Statement', class: 'btn btn-success', data: { style: 'expand-right' } %>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'preview_modal' %>
+
+<% provide :scripts do %>
+  <script>
+    $(function() {
+      $('.editable').each(function(){
+        //params for customized editor
+        var params = {
+          'placeholder': $(this).attr('placeholder'),
+          'buttonLabels': 'fontawesome',
+          'buttons': ['bold', 'italic', 'underline', 'header1', 'header2', 'justifyCenter', 'justifyFull', 'unorderedlist', 'orderedlist']
+        }
+
+        //initialize the editor
+        $('<div id="statement_editable" class="editable">' + $(this).html() + '</div>').replaceAll(this);
+        var editor = new MediumEditor('.editable', params);
+
+        //add insert functionality
+        $('.editable').mediumInsert({
+          editor: editor,
+          addons: {
+            images: {
+              imagesUploadScript: "/assets",
+              deleteFile: function(file, that) {
+                var fileParts = file.split("/");
+                var id = fileParts[fileParts.length - 2];
+                $.ajax({
+                  type: "delete",
+                  url: "/assets/" + id
+                });
+              }
+            }
+          }
+        });
+
+        //serialize content to hidden_field on SUBMIT
+        $( "#edit_problem" ).submit(function( event ) {
+          $('#statement_field').val(editor.serialize().statement_editable.value);
+        });
+
+        //serialize content to modal on PREVIEW
+        $('#preview_button').click(function(e){
+          e.preventDefault();
+
+          $('#preview_body').html(editor.serialize().statement_editable.value);
+          $('#preview_modal').modal('show');
+        });
+      });
+
+      //fill in content-editable if there are any errors?
+      var statement = $('#statement_field').val();
+      if (statement.length != 0) {
+        $('#statement_editable').removeAttr('data-placeholder');
+        $('#statement_editable').html(statement);
+      }
+
+      //enable MathJax preview in .editable
+      $('.editable').writemaths({position:'center top', previewPosition: 'center bottom', of: 'this'});
+
+      //Typesetting on PREVIEW
+      $('#preview_modal').on('show.bs.modal', function (e) {
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+      });
+    });
+  </script>
+<% end %>

@@ -27,6 +27,12 @@ class User < ActiveRecord::Base
 
 	enum status: [ :pending, :approved, :blocked ]
 
+#RELATIONSHIPS
+#================================================================
+	has_many :problems, foreign_key: 'author_id', dependent: :destroy
+
+#AVATAR
+#================================================================
 	has_attached_file :avatar, 
 										styles: { thumb: '26x26!', square: '50x50!', preview: '96x96!' },
 										path: '/users/:id/avatar/:style/:basename.:extension',
@@ -36,7 +42,7 @@ class User < ActiveRecord::Base
   validates_attachment :avatar, :size => { :less_than => 200.kilobytes }
 
 #VALIDATIONS
-#====================================================================
+#================================================================
 	#username
 	VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+(_?[a-zA-Z0-9]+)+\z/
 	validates :username, presence: true,
@@ -52,7 +58,7 @@ class User < ActiveRecord::Base
 	validates :school, presence: true
 
 #SIGNING IN (remember_token)
-#====================================================================
+#================================================================
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64
 	end
@@ -62,12 +68,12 @@ class User < ActiveRecord::Base
 	end
 
 #ADMIN MODULE
-#====================================================================
-	def User.filter status, username
+#================================================================
+	def User.filter username, status
 		if status == 'master'
-			where('master = true AND username LIKE ?', "%#{username}%")
+			where('username LIKE ? AND master = true', "%#{username}%")
 		else
-			where('status = ? AND username LIKE ?', status, "%#{username}%")
+			where('username LIKE ? AND status = ?', "%#{username}%", status)
 		end
 	end
 
@@ -88,7 +94,7 @@ class User < ActiveRecord::Base
 	end
 
 #PRIVATE
-#====================================================================
+#================================================================
 	private
 		def create_remember_token
 			self.remember_token = User.digest(User.new_remember_token)

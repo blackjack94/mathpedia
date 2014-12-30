@@ -11,4 +11,7 @@
  *= require bootstrap
  *= require laravel
  *= require custom
+ *= require medium-editor
+ *= require default-theme
+ *= require medium-editor-insert-plugin
  */

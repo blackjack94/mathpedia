@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 			flash[:info] = "Trang này không tồn tại!"
 			redirect_to users_path(status: 'approved')
 		else
-			@users = User.filter(status, username).paginate(page: params[:page], per_page: 10).to_a
+			@users = User.filter(username, status).paginate(page: params[:page], per_page: 10).to_a
 			@blocked = true if status == 2
 
 			fresh_when etag: users_cache_key
@@ -85,13 +85,6 @@ class UsersController < ApplicationController
         flash[:info] = "Đừng hack tài khoản của bạn khác nhe đồng chí!"
         redirect_to edit_user_path(current_user.username)
       end
-		end
-
-		def must_be_master
-			unless current_user.master?
-				flash[:info] = "Trang này không tồn tại!"
-				redirect_to root_path
-			end
 		end
 
 end

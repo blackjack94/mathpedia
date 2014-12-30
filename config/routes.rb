@@ -20,6 +20,14 @@ Mathpedia::Application.routes.draw do
   post '/signin', to: 'sessions#create', as: 'signin_post'
   delete '/signout', to: 'sessions#destroy'
 
+  #problems
+  resources :problems, only: [ :new, :show, :edit, :destroy ]
+  post '/problems/new', to: 'problems#create', as: 'create_problem'
+  patch 'problems/:id/edit', to: 'problems#update', as: 'update_problem'
+
+  #assets
+  resources :assets, only: [:create, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -46,6 +46,7 @@
 	  $("#red-link").one("click", function() {
     	$(this).click(function () { return false; });
     	$(this).attr('disabled', 'disabled').text('Đang xoá...');
+
     	$("#green-link").click(function () { return false; });
     	$("#green-link").attr('disabled', 'disabled').text('Xin chờ!');
 		});

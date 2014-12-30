@@ -9,6 +9,17 @@ vi:
         password_confirmation: "Xác nhận Password"
         avatar_content_type: "Kiểu file của Avatar"
         avatar_file_size: "Dung lượng của Avatar"
+      domain:
+        name: "Tên Phân môn"
+      problem:
+        title: "Tên Bài Toán"
+        statement: "Đề bài Toán"
+        domain_id: "Phân môn"
+        author_id: "Tác giả"
+      asset:
+        image_content_type: "Kiểu file của Ảnh"
+        image_file_size: "Dung lượng của Ảnh"
+        image: "Ảnh"
     errors:
       messages:
         confirmation: "không khớp"
@@ -31,4 +42,27 @@ vi:
             avatar_file_size:
               less_than: "phải ít hơn 200KB"
             avatar:
+              less_than: "phải ít hơn 200KB"
+        domain:
+          attributes:
+            name:
+              blank: "không thể trống"
+        problem:
+          attributes:
+            title:
+              blank: "không thể trống"
+              too_long: "không được quá 140 ký tự"
+            statement:
+              blank: "không thể trống"
+            domain_id:
+              blank: "không thể trống"
+            author_id:
+              blank: "không thể trống"
+        asset:
+          attributes:
+            image_content_type:
+              invalid: "phải là hình ảnh"
+            image_file_size:
+              less_than: "phải ít hơn 200KB"
+            image:
               less_than: "phải ít hơn 200KB"
