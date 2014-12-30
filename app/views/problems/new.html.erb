@@ -46,6 +46,8 @@
 <%= render 'preview_modal' %>
 
 <% provide :scripts do %>
+  <%= javascript_include_tag "writemaths", "data-turbolinks-track" => true %>
+
   <script>
     $(function() {
       $('.editable').each(function(){
