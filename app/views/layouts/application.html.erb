@@ -27,5 +27,7 @@
   <%= javascript_include_tag "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML.js" %>
 
   <%= yield :scripts %>
+
+  <script>MathJax.Hub.Typeset();</script>
 </body>
 </html>

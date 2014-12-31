@@ -6,19 +6,18 @@ class ProblemsController < ApplicationController
 
 	def new
 		@problem = Problem.new
-		@difficulties = Problem.difficulties
+		@difficulties = Problem.options_for(:difficulties)
 		@domains = Domain.all.to_a
 	end
 
 	def create
-		params[:problem][:difficulty]	= params[:problem][:difficulty].to_i
-		@problem = current_user.problems.new(problem_params)		
+		@problem = current_user.problems.build(problem_params)		
 		
 		if @problem.save
 			flash[:success] = "THANKS FOR SHARING!"
 			redirect_to problem_path(@problem)
 		else
-			@difficulties = Problem.difficulties
+			@difficulties = Problem.options_for(:difficulties)
 			@domains = Domain.all.to_a
 			render :new
 		end
@@ -27,17 +26,33 @@ class ProblemsController < ApplicationController
 	def show
 		@domain = @problem.domain
 		@author = @problem.author
+		@id = @problem.id
+		
+		template = { 'solution' => 'show_solution' }[params[:view]]
+		template = 'show' if template.nil?
+		render template
 	end
 
 	def edit
+		get_info if params[:view] == 'master'
+
+		template = { 'solution' => 'edit_solution', 'master' => 'edit_master' }[params[:view]]
+		template = 'edit' if template.nil?
+		render template
 	end
 
 	def update
+		template, path = { 'solution' => ['edit_solution', problem_path(id: @problem.id, view: 'solution')],  
+											 'master' => ['edit_master'] }[params[:view]]
+		template = 'edit' if template.nil?
+		path = problem_path(@problem) if path.nil?
+
 		if @problem.update_attributes(problem_params)
 			flash[:success] = "Cập nhật thành công!"
-			redirect_to problem_path(@problem)
+			redirect_to path
 		else
-			render :edit
+			get_info if params[:view] == 'master'
+			render template
 		end
 	end
 
@@ -54,6 +69,13 @@ class ProblemsController < ApplicationController
 
 		def get_problem
 			@problem = Problem.find(params[:id])
+		end
+
+		def get_info
+			@difficulties = Problem.options_for(:difficulties)
+			@domains = Domain.all.to_a
+			@statuses = Problem.options_for(:statuses)
+			@id = @problem.id
 		end
 
 end

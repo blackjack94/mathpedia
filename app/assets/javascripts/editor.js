@@ -2,9 +2,9 @@ $(function() {
   $('.editable').each(function(){
     //params for customized editor
     var params = {
-      'placeholder': $(this).attr('placeholder'),
-      'buttonLabels': 'fontawesome',
-      'buttons': ['bold', 'italic', 'underline', 'header1', 'header2', 'justifyCenter', 'justifyFull', 'unorderedlist', 'orderedlist']
+      placeholder: $(this).attr('placeholder'),
+      buttonLabels: 'fontawesome',
+      buttons: ['bold', 'italic', 'underline', 'header1', 'header2', 'justifyCenter', 'justifyFull', 'unorderedlist', 'orderedlist']
     }
 
     //initialize the editor

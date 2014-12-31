@@ -37,6 +37,11 @@ module SessionsHelper
     current_user == user
   end
 
+  def is_master?
+    return false if (current_user.nil? || !current_user.master?)
+    return true
+  end
+
 #AUTHORIZATION
 #=====================================================================
 	#SIGNED_IN ONLY
@@ -54,7 +59,7 @@ module SessionsHelper
 
   #MASTER ONLY
   def must_be_master
-    unless current_user.master?
+    unless is_master?
       flash[:info] = "Trang này không tồn tại!"
       redirect_to root_path
     end

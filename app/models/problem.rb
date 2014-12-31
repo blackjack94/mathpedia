@@ -38,9 +38,9 @@ class Problem < ActiveRecord::Base
 
 #BUSINESS LOGIC
 #================================================================
-  # def Problem.status_options
-  #   Problem.statuses.
-  # end
+  def Problem.options_for(attribute)
+    Problem.try(attribute).map { |key, value| [key, key] }
+  end
 
 #PRIVATE
 #================================================================

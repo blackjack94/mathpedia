@@ -18,11 +18,11 @@ B. STACK
 
 C. PRODUCTION-QUALITY
 
-9. Nice Bootstrap & AJAX
+9. Nice Bootstrap & AJAX (+ Medium-like Editor)
 10. Avoid major security holes (XSS, CSRF, SQL Injection)
 11. Faster site by efficient Query & Caching
 
 
-**IMPORTANT:** This source code is not complete and will be release on December 20th, 2014.
+**IMPORTANT:** This source code is not complete and will be release on January 1st, 2014.
 
 **DISCLOSURE:** The front-end design is not mine, I contacted [Mr. Surguy](https://twitter.com/msurguy) for his permissions to use the [bootstrap](http://getbootstrap.com/) code of [laravel-tricks](https://github.com/blackjack94/laravel-tricks/).

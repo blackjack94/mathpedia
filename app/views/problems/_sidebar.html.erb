@@ -1,0 +1,69 @@
+<div class="col-lg-3 col-md-4">
+  <div class="content-box">
+
+    <b>Stats</b>
+    <ul class="list-group trick-stats">
+      <li class='list-group-item'>
+        <span class="fa fa-money"></span> Points
+        <span class="pull-right">7 + 3</span>
+      </li>
+      <li class="list-group-item">
+        <span class="fa fa-list-alt"></span> Submissions
+        <span class="pull-right">20 / 40</span>
+      </li>
+    </ul>
+
+    <b>Categorization</b>
+    <ul class="list-group trick-stats">
+      <li class="list-group-item">
+        <span class="fa fa-tags"></span> Domain
+        <span class="pull-right"><%= @domain.name %></span>
+      </li>
+      <li class="list-group-item">
+        <span class="fa fa-signal"></span> Level
+        <span class="pull-right"><%= @problem.difficulty %></span>
+      </li>
+      <li class="list-group-item">
+        <span class="fa fa-dropbox"></span> Status
+        <span class="pull-right"><%= @problem.status %></span>
+      </li>
+    </ul>
+    
+    <b>Navigation</b>
+    <ul class="nav nav-list push-down">
+      <li>
+        <%= link_to problem_path(@id), class: "text-#{color_for('statement')}" do %>
+          <span class="fa fa-question-circle"></span> Problem Statement
+        <% end %>
+      </li>
+
+      <% if is_master? %>
+        <li>
+          <%= link_to '#', class: "text-muted" do %>
+            <span class="fa fa-pencil-square"></span> Master Gradings
+          <% end %>
+        </li>
+      <% end %>
+
+      <li>
+        <%= link_to '#', class: "text-muted" do %>
+          <span class="fa fa-users"></span> Good Solutions
+        <% end %>
+      </li>
+      <li>
+        <%= link_to problem_path(id: @id, view: 'solution'), class: "text-#{color_for('solution')}" do %>
+          <span class="fa fa-check-circle"></span> Official Solution
+        <% end %>
+      </li>
+
+      <% if is_master? %>
+        <li>
+          <%= link_to edit_problem_path(id: @id, view: 'master'), class: "text-#{color_for('master')}" do %>
+            <span class="fa fa-gears"></span> Master Settings
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+  </div>
+</div>

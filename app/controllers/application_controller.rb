@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  rescue_from ActionController::InvalidAuthenticityToken, :with => :sign_out_user
 
   include SessionsHelper
 
@@ -23,5 +24,12 @@ class ApplicationController < ActionController::Base
   		User.maximum(:updated_at).try(:utc).try(:to_s, :number)
   	end
   end
+
+  private
+    def sign_out_user
+      sign_out(current_user) if signed_in?
+      flash[:warning] = 'Your session has expired, please login again!'
+      redirect_to signin_path
+    end
 
 end

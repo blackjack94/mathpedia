@@ -1,0 +1,11 @@
+<div class="trick-user">
+  <div class="trick-user-image">
+    <%= image_tag @author.avatar.url(:square), class: 'user-avatar' %>
+  </div>
+  <div class="trick-user-data">
+    <h1 class="page-title"><%= @problem.title %></h1>
+    <div>
+      Proposed by <b><%= link_to @author.username, user_path(@author.username) %></b>
+    </div>
+  </div>
+</div>
