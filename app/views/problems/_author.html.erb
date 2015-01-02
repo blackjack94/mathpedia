@@ -1,3 +1,4 @@
+<% cache @problem do %>
 <div class="trick-user">
   <div class="trick-user-image">
     <%= image_tag @author.avatar.url(:square), class: 'user-avatar' %>
@@ -9,3 +10,4 @@
     </div>
   </div>
 </div>
+<% end %>

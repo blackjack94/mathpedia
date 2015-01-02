@@ -1,6 +1,7 @@
 <div class="col-lg-3 col-md-4">
   <div class="content-box">
-
+    
+    <% cache @problem do %>
     <b>Stats</b>
     <ul class="list-group trick-stats">
       <li class='list-group-item'>
@@ -28,7 +29,9 @@
         <span class="pull-right"><%= @problem.status %></span>
       </li>
     </ul>
+    <% end %>
     
+    <% cache [current_user, @id, params[:view]] do %>
     <b>Navigation</b>
     <ul class="nav nav-list push-down">
       <li>
@@ -64,6 +67,7 @@
         </li>
       <% end %>
     </ul>
+    <% end %>
 
   </div>
 </div>

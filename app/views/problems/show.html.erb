@@ -1,5 +1,6 @@
 <% provide :title, @problem.title %>
 
+<% cache [@problem, current_user] do %>
 <div class="container">
   <div class="row">
 
@@ -23,3 +24,4 @@
 
   </div>
 </div>
+<% end %>

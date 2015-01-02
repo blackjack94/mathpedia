@@ -10,16 +10,16 @@ class ProblemsController < ApplicationController
 				flash[:info] = "Trang này không tồn tại!"
 				redirect_to problems_path
 			else
-				@problems = Problem.try(params[:status]).paginate(page: params[:page], per_page: 9).includes(:author).includes(:domain)
+				@problems = Problem.try(params[:status]).paginate(page: params[:page], per_page: 9).includes(:author, :domain)
 			end
 		else
-			@problems = Problem.filter(params[:domain], params[:difficulty]).paginate(page: params[:page], per_page: 9).includes(:author).includes(:domain)	
+			@problems = Problem.filter(params[:domain], params[:difficulty]).paginate(page: params[:page], per_page: 9).includes(:author, :domain)	
 		end
 		
 		@domains = Domain.all
 		@difficulties = {"all" => "3"}.merge(Problem.difficulties)
 
-		# fresh_when etag: problems_cache_key
+		fresh_when etag: problems_cache_key
 	end
 
 	def new
