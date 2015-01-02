@@ -4,6 +4,22 @@ class ProblemsController < ApplicationController
 	before_action :must_be_master, only: [:new, :create, :edit, :update, :destroy]
 	before_action :get_problem, only: [:show, :edit, :update, :destroy]
 
+	def index
+		if params[:status]
+			unless ['draft', 'ready', 'online'].include?(params[:status]) && is_master?
+				flash[:info] = "Trang này không tồn tại!"
+				redirect_to problems_path
+			else
+				@problems = Problem.try(params[:status]).paginate(page: params[:page], per_page: 9).includes(:author).includes(:domain)
+			end
+		else
+			@problems = Problem.filter(params[:domain], params[:difficulty]).paginate(page: params[:page], per_page: 9).includes(:author).includes(:domain)	
+		end
+		
+		@domains = Domain.all
+		@difficulties = {"all" => "3"}.merge(Problem.difficulties)
+	end
+
 	def new
 		@problem = Problem.new
 		@difficulties = Problem.options_for(:difficulties)
@@ -42,7 +58,7 @@ class ProblemsController < ApplicationController
 	end
 
 	def update
-		template, path = { 'solution' => ['edit_solution', problem_path(id: @problem.id, view: 'solution')],  
+		template, path = { 'solution' => ['edit_solution', problem_path(id: @problem.id, view: 'solution')],
 											 'master' => ['edit_master'] }[params[:view]]
 		template = 'edit' if template.nil?
 		path = problem_path(@problem) if path.nil?

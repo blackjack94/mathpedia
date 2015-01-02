@@ -16,6 +16,7 @@
 //= require medium-editor-insert-plugin
 //= require medium-editor-insert-images
 //= require rangy-core
+//= require masonry.pkgd
 //= require turbolinks
 
 Turbolinks.enableProgressBar();

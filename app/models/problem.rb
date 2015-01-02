@@ -18,7 +18,7 @@ class Problem < ActiveRecord::Base
   belongs_to :domain
   belongs_to :author, class_name: 'User'
 
-  enum status: [ :draft, :official ]
+  enum status: [ :draft, :ready, :online, :official ]
   enum difficulty: [ :easy, :medium, :hard ]
 
   before_create :default_solution
@@ -40,6 +40,16 @@ class Problem < ActiveRecord::Base
 #================================================================
   def Problem.options_for(attribute)
     Problem.try(attribute).map { |key, value| [key, key] }
+  end
+
+  def Problem.filter(domain_id, difficulty)
+    domain_id = '1' if domain_id.nil?
+
+    if difficulty.nil? || difficulty == '3'
+      official.where('domain_id = ?', domain_id).order(updated_at: :desc)
+    else
+      official.where('domain_id = ? AND difficulty = ?', domain_id, difficulty).order(updated_at: :desc)  
+    end
   end
 
 #PRIVATE

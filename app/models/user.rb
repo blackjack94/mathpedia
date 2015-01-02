@@ -71,9 +71,9 @@ class User < ActiveRecord::Base
 #================================================================
 	def User.filter username, status
 		if status == 'master'
-			where('username LIKE ? AND master = true', "%#{username}%")
+			where('username LIKE ? AND master = true', "%#{username}%").order(:id)
 		else
-			where('username LIKE ? AND status = ?', "%#{username}%", status)
+			where('username LIKE ? AND status = ?', "%#{username}%", status).order(:id)
 		end
 	end
 

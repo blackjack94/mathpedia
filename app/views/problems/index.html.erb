@@ -1,0 +1,29 @@
+<% provide :title, 'Library' %>
+
+<div class="container">
+	<%= render 'problems/filter' %>
+
+	<div class="row js-trick-container">
+		<%= render @problems %>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="text-center">
+				<%= will_paginate %>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<% provide :scripts do %>
+	<script>
+	$(function(){
+		$(".js-trick-container").masonry({
+			itemSelector: ".trick-card",
+			columnWidth: ".trick-card"
+		});
+	})
+	</script>
+<% end %>

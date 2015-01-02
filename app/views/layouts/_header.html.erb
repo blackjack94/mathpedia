@@ -15,7 +15,9 @@
 		  <ul class="nav navbar-nav">
 		  	<li><%= link_to 'Tập Huấn', '#' %></li>
 		  	<li><%= link_to 'Bảng Vàng', '#' %></li>
-		  	<li><%= link_to 'Thư Viện', '#' %></li>
+		  	<li class="<%= is_active?(problems_path) %>">
+		  		<%= link_to 'Thư Viện', problems_path %>
+		  	</li>
 		  	<li><%= link_to 'Ôn Tập', '#' %></li>
 		  	<% if signed_in? %>
 		  		<% if current_user.master? %>

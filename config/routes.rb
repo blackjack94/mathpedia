@@ -21,7 +21,7 @@ Mathpedia::Application.routes.draw do
   delete '/signout', to: 'sessions#destroy'
 
   #problems
-  resources :problems, only: [ :new, :show, :edit, :destroy ]
+  resources :problems, only: [ :index, :new, :show, :edit, :destroy ]
   post '/problems/new', to: 'problems#create', as: 'create_problem'
   patch 'problems/:id/edit', to: 'problems#update', as: 'update_problem'
 

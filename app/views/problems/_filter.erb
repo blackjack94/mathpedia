@@ -1,0 +1,39 @@
+<div class="row push-down">
+	<div class="col-sm-4 col-xs-12">
+		<form class="form-inline">
+
+			<div class="form-group">
+				<%= select_tag :domain,
+				options_from_collection_for_select(@domains, :id, :name, selected: params[:domain]), class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= select_tag :difficulty,
+				options_for_select(@difficulties, selected: params[:difficulty]), class: 'form-control' %>
+			</div>
+			<button type="submit" class="btn btn-primary">Filter</button>
+
+		</form>
+	</div>
+
+	<% if is_master? %>
+		<div class="col-sm-4 col-xs-12">
+			<ul class="nav nav-pills">
+				<li class="<%= is_active?(problems_path(status: 'draft', page: params[:page])) %>">
+		  		<%= link_to 'Drafts', problems_path(status: 'draft') %>
+		  	</li>
+				<li class="<%= is_active?(problems_path(status: 'ready', page: params[:page])) %>">
+		  		<%= link_to 'Ready', problems_path(status: 'ready') %>
+		  	</li>
+		  	<li class="<%= is_active?(problems_path(status: 'online', page: params[:pageg])) %>">
+		  		<%= link_to 'Online', problems_path(status: 'online') %>
+		  	</li>
+			</ul>
+		</div>
+
+		<div class="col-sm-4 col-xs-12 text-right">				
+			<%= link_to new_problem_path, "data-no-turbolink" => true, class: 'btn btn-primary' do %>
+				<span class="glyphicon glyphicon-plus"></span> New Problem
+			<% end %>
+		</div>
+	<% end %>
+</div>
