@@ -26,7 +26,7 @@ module Mathpedia
     # config.i18n.default_locale = :de
 
     # ADDED BY BLACKJACK94
-    # config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.precompile += %w(editor.js writemaths.js)
     # DO NOT force locales validaiton
     I18n.enforce_available_locales = false
     GC::Profiler.enable
