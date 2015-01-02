@@ -9,21 +9,37 @@ class ApplicationController < ActionController::Base
   etag { flash }
   etag { current_user }
 
-  helper_method :users_cache_key
+  helper_method :users_cache_key, :problems_cache_key
 
-  def users_cache_key
-  	"users/all-#{users_count}-#{users_max_updated_at}"
-  end
+  #users cache key
+    def users_cache_key
+    	"users/all-#{users_count}-#{users_max_updated_at}"
+    end
 
-  def users_count
-  	Rails.cache.fetch("users-count") { User.count }
-  end
+    def users_count
+    	Rails.cache.fetch("users-count") { User.count }
+    end
 
-  def users_max_updated_at
-  	Rails.cache.fetch("users-max-updated-at") do
-  		User.maximum(:updated_at).try(:utc).try(:to_s, :number)
-  	end
-  end
+    def users_max_updated_at
+    	Rails.cache.fetch("users-max-updated-at") do
+    		User.maximum(:updated_at).try(:utc).try(:to_s, :number)
+    	end
+    end
+
+  #problems cache key
+    def problems_cache_key
+      "problems/all-#{problems_count}-#{problems_max_updated_at}"
+    end
+
+    def problems_count
+      Rails.cache.fetch("problems-count") { Problem.count }
+    end
+
+    def problems_max_updated_at
+      Rails.cache.fetch("problems-max-updated-at") do
+        Problem.maximum(:updated_at).try(:utc).try(:to_s, :number)
+      end
+    end
 
   private
     def sign_out_user

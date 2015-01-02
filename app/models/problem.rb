@@ -22,6 +22,7 @@ class Problem < ActiveRecord::Base
   enum difficulty: [ :easy, :medium, :hard ]
 
   before_create :default_solution
+  after_commit :invalidate_cache
 
 #VALIDATIONS
 #================================================================
@@ -57,6 +58,11 @@ class Problem < ActiveRecord::Base
   private
     def default_solution
     	self.solution = 'Lời giải và Bình luận'
+    end
+
+    def invalidate_cache
+      Rails.cache.delete('problems-count')
+      Rails.cache.delete('problems-max-updated-at')
     end
 
 end

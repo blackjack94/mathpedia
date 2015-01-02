@@ -18,12 +18,17 @@ class ProblemsController < ApplicationController
 		
 		@domains = Domain.all
 		@difficulties = {"all" => "3"}.merge(Problem.difficulties)
+
+		# fresh_when etag: problems_cache_key
 	end
 
 	def new
 		@problem = Problem.new
 		@difficulties = Problem.options_for(:difficulties)
 		@domains = Domain.all.to_a
+
+		#BE CAREFUL, domains & difficulties mya CHANGE
+		fresh_when [@problem, form_authenticity_token]
 	end
 
 	def create
@@ -40,13 +45,18 @@ class ProblemsController < ApplicationController
 	end
 
 	def show
-		@domain = @problem.domain
-		@author = @problem.author
-		@id = @problem.id
-		
-		template = { 'solution' => 'show_solution' }[params[:view]]
-		template = 'show' if template.nil?
-		render template
+		if @problem.official? || is_master?
+			@domain = @problem.domain
+			@author = @problem.author
+			@id = @problem.id
+			
+			template = { 'solution' => 'show_solution' }[params[:view]]
+			template = 'show' if template.nil?
+			render template if stale?(@problem)	
+		else
+			flash[:info] = "This page doesn't exist!"
+			redirect_to root_path
+		end		
 	end
 
 	def edit
@@ -54,7 +64,7 @@ class ProblemsController < ApplicationController
 
 		template = { 'solution' => 'edit_solution', 'master' => 'edit_master' }[params[:view]]
 		template = 'edit' if template.nil?
-		render template
+		render template if stale?([@problem, form_authenticity_token])
 	end
 
 	def update

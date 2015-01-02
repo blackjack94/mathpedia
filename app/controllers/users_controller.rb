@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 	before_action :must_not_signed_in, only: [:new, :create]
-	before_action :must_signed_in, except: [:new, :create, :show]
+	before_action :must_signed_in, except: [:index, :edit, :update :status]
 	before_action :must_own_it, only: [:edit, :update]
 	before_action :must_be_master, only: [:index, :status]
 
