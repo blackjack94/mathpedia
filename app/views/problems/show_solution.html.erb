@@ -9,7 +9,9 @@
 
         <% if is_master? %>
           <div class="text-right">
-            <%= link_to 'Edit Solution', edit_problem_path(id: @id, view: 'solution'), "data-no-turbolink" => true %>
+            <%= link_to 'Edit Solution', edit_problem_path(id: @id, view: 'solution'), "data-no-turbolink" => true %> |
+            <%= link_to 'Delete', '#delete-modal', data: { toggle: 'modal' } %>
+            <%= render 'delete_modal' %>
           </div>
         <% end %>
 

@@ -101,7 +101,6 @@ class ProblemsController < ApplicationController
 			@difficulties = Problem.options_for(:difficulties)
 			@domains = Domain.all.to_a
 			@statuses = Problem.options_for(:statuses)
-			@id = @problem.id
 		end
 
 end

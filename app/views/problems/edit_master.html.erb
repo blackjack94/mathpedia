@@ -38,12 +38,10 @@
               <%= f.select :status, options_for_select(@statuses, selected: @problem.status), {}, class: 'form-control' %>
             </div>
             <div class="col-sm-4 col-sm-offset-4">
-            	<%= link_to 'Delete', '#delete-modal', class: 'btn btn-danger', data: { toggle: 'modal' } %>
+            	<%= link_to 'Cancel', problem_path(@problem), class: 'btn btn-danger' %>
               <%= f.submit 'Update', class: 'btn btn-success', data: { style: 'expand-right' } %>              
             </div>
           </div>
-
-          <%= render 'delete_modal' %>
         <% end %>
 
       </div>
