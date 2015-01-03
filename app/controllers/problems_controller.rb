@@ -3,19 +3,9 @@ class ProblemsController < ApplicationController
 	before_action :must_signed_in, only: [:new, :create, :edit, :update, :destroy]
 	before_action :must_be_master, only: [:new, :create, :edit, :update, :destroy]
 	before_action :get_problem, only: [:show, :edit, :update, :destroy]
+	before_action :satisfied_problems, only: [:index]
 
 	def index
-		if params[:status]
-			unless ['draft', 'ready', 'online'].include?(params[:status]) && is_master?
-				flash[:info] = "Trang này không tồn tại!"
-				redirect_to problems_path
-			else
-				@problems = Problem.try(params[:status]).paginate(page: params[:page], per_page: 9).includes(:author, :domain)
-			end
-		else
-			@problems = Problem.filter(params[:domain], params[:difficulty]).paginate(page: params[:page], per_page: 9).includes(:author, :domain)	
-		end
-		
 		@domains = Domain.all
 		@difficulties = {"all" => "3"}.merge(Problem.difficulties)
 
@@ -101,6 +91,19 @@ class ProblemsController < ApplicationController
 			@difficulties = Problem.options_for(:difficulties)
 			@domains = Domain.all.to_a
 			@statuses = Problem.options_for(:statuses)
+		end
+
+		def satisfied_problems
+			if params[:status]
+				unless ['draft', 'ready', 'online'].include?(params[:status]) && is_master?
+					flash[:info] = "Trang này không tồn tại!"
+					redirect_to problems_path
+				else
+					@problems = Problem.try(params[:status]).paginate(page: params[:page], per_page: 9).includes(:author, :domain)
+				end
+			else
+				@problems = Problem.filter(params[:domain], params[:difficulty]).paginate(page: params[:page], per_page: 9).includes(:author, :domain)
+			end
 		end
 
 end

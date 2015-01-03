@@ -40,7 +40,7 @@ class Problem < ActiveRecord::Base
 #BUSINESS LOGIC
 #================================================================
   def Problem.options_for(attribute)
-    Problem.try(attribute).map { |key, value| [key, key] }
+    Problem.try(attribute).except('online', 'official').map { |key, value| [key, key] }
   end
 
   def Problem.filter(domain_id, difficulty)
