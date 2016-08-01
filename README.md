@@ -5,7 +5,7 @@ MathPedia
 
 Originally built at [Vietnam Hackathon 2014][3] as a community-crafted library of practice problems, it is later pivoted into a Codeforces-like site, with a **specific solution** for grading **written proofs**.
 
-The project has been abandoned since 2015. Nevertheless, it had taught me a lot of lessons.
+The project has been abandoned since 2015. Nevertheless, it had taught me many lessons.
 
 **Table of Contents**
 
@@ -15,7 +15,6 @@ The project has been abandoned since 2015. Nevertheless, it had taught me a lot 
 - [The Features](#the-features)
 - [Technical Details](#technical-details)
 - [The Lessons](#the-lessons)
-
 
 
 ## The Story
@@ -56,9 +55,11 @@ Here is the overall plan:
 4. By joining a competition, your **elo-score may increase or decrease**, similar to the **elo-ranking for multiplayer games**.
 5. You are recognized with **Titles** based on your **elo-score** (similar to Codeforces).
 6. Each problem have to be **approved in quality** before its author can earn mCoins. **Approved problems** will then be considered for **future contests**.
-7. All gradings will be **public for error-reports**, which is solved by the **intervention of moderators**.
+7. All gradings will be **public for error-reports**, which is solved by the **intervention of moderators**. Irresponsible graders will **lose mCoins and may be punished**.
 
-In summary, MathPedia looks like an economy, where you have to provide goods (quality problems) or services (grading solutions) in order to earn money (mCoins). On the other side, you have to spend money in order to get knowledge (joining contests) and be socially recognized (if you're good). Moreover, the Government (moderators) is in charge of ensuring goods' quality (approving problems) and solving conflicts (errors in grading).
+In summary, MathPedia looks like an economy, where you have to provide goods (quality problems) or services (grading solutions) in order to earn money (mCoins). On the other side, you have to spend money in order to get knowledge (joining contests) and be socially recognized (if you're good). 
+
+Moreover, the Government (moderators) is in charge of ensuring goods' quality (approving problems) and solving conflicts (errors in grading).
 
 ## The Features
 
@@ -93,10 +94,22 @@ _Feature #4 and #6_: Due to a specific reason, we'll only have _"one-topic"_ com
 
 ## The Lessons
 
+I believe the failure is due to 3 reasons: 
+
+1. Pivoting based on outsiders' opinions. Up to know, I don't know whethere the decision to pivot was right or not?
+2. Loosing commitment by coding for too long.
+3. Losing morale by working alone.
+
+The lessons I learnt:
+
+1. The only base for pivoting decision is: **Your customer's opinions**.
+2. Commitment is **empowered by results**. Find a problem and **solve enough** to get results as fast as possible.
+3. Commitment is better enforced **within a group**. _"Communicate. Delegate. Repeat!"_
+
+Next time, I'll build projects via short iterations, with customer-based goals and strong communication. Or should I take a look at [The Lean Startup][15]?
 
 
 **Thanks for Reading!**
-
 
 [1]: http://mathpedia.herokuapp.com/
 [2]: http://codeforces.com/
@@ -112,3 +125,4 @@ _Feature #4 and #6_: Due to a specific reason, we'll only have _"one-topic"_ com
 [12]: http://linuxrails.blogspot.com.au/2012/06/postgresql-setup-for-rails-development.html
 [13]: https://www.pluralsight.com/courses/rails-4-1-performance-fundamentals
 [14]: http://www.ubazu.com/2014/02/25/configure-ruby-rails-paperclip-amazon-s3-cloudfront-images-files/
+[15]: https://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation-ebook/dp/B004J4XGN6/
