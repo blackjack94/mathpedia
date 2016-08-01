@@ -4,7 +4,7 @@ MathPedia
 <img src="http://d13iam57dikkc8.cloudfront.net/assets/logo-8dd182218aa08462ba3fb42dbb1d291a.png" alt="MathPedia Logo" width="210" align="right" />
 **[MathPedia][1]** is an online platform for hosting & joining Mathematics competitions (think [Codeforces][2] for Mathematical Olympiads).
 
-Originally built at [Vietnam Hackathon 2014][3] as a community-maintained library of practice problems, it is later pivoted into a Codeforces-like site, with a **specific solution** for grading **written proofs**.
+Originally built at [Vietnam Hackathon 2014][3] as a community-crafted library of practice problems, it is later pivoted into a Codeforces-like site, with a **specific solution** for grading **written proofs**.
 
 The project has been abandoned since 2015. Nevertheless, it had taught me a lot of lessons.
 
@@ -73,7 +73,7 @@ _Feature #1 and #2_: These features are finished. Others are abandoned.
 _Feature #4 and #6_: Due to a specific reason, we'll only have _"one-topic"_ competitions. In other words, we provide _"Combinatorics Round 6"_ or _"Algebra Round 10"_ only, not a _"Maths Round 12" competition_. Therefore:
 
 - Rankings table are divided into sub-fields: **Algebra**, **Combinatorics**, **Geometry** and **Number Theory**.
-- A user can be **Combinatorics Grandmaster** and **Algebra Specialist**, etc.
+- A user can have many titles: **Combinatorics Grandmaster**, **Algebra Specialist**, etc.
 
 
 ## Technical Details
