@@ -1,7 +1,6 @@
 MathPedia
 ==============
 
-<img src="http://d13iam57dikkc8.cloudfront.net/assets/logo-8dd182218aa08462ba3fb42dbb1d291a.png" alt="MathPedia Logo" width="210" align="right" />
 **[MathPedia][1]** is an online platform for hosting & joining Mathematics competitions (think [Codeforces][2] for Mathematical Olympiads).
 
 Originally built at [Vietnam Hackathon 2014][3] as a community-crafted library of practice problems, it is later pivoted into a Codeforces-like site, with a **specific solution** for grading **written proofs**.
@@ -12,9 +11,11 @@ The project has been abandoned since 2015. Nevertheless, it had taught me a lot 
 
 - [The Story](#the-story)
 - [The Challenges](#the-challenges)
+<img src="http://d13iam57dikkc8.cloudfront.net/assets/logo-8dd182218aa08462ba3fb42dbb1d291a.png" alt="MathPedia Logo" width="300" align="right" />
 - [The Features](#the-features)
-- [Technical details](#technical-details)
-- [Failure and Lessons](#failure-and-lessons)
+- [Technical Details](#technical-details)
+- [The Lessons](#the-lessons)
+
 
 
 ## The Story
@@ -90,7 +91,7 @@ _Feature #4 and #6_: Due to a specific reason, we'll only have _"one-topic"_ com
 
 [The original domain](http://www.mathpedia.vn/) was bought by one of the early adopters, which is now expired.
 
-## Failure and Lessons
+## The Lessons
 
 
 
