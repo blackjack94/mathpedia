@@ -19,17 +19,17 @@ The project has been abandoned since 2015. Nevertheless, it had taught me many l
 
 ## The Story
 
-By late-summer 2014, in an effort to help students better prepared for future Olympiads, me and my friends planned to select, revise and re-organize all the problems from [Mathscope][4], Vietnam's largest forum in Mathematical Olympiad.
+By late-summer 2014, in an effort to help students better prepared for future Olympiads, me and my friends planned to select, revise and re-organize all the problems on [Mathscope][4], Vietnam's largest forum in Mathematical Olympiad.
 
 Instead of compiling a heavy book, we decided to build a Wikipedia-like site, where registered members can continuously contribute to the wealth of the site. The vision is a library that covers various topics in Mathematics, each with 7 carefully crafted problems: _hints_, _illustrated solution_ and _lessons learned_, organized into a self-learning path. 
 
 We named it **MathPedia**.
 
-With the idea further developed, we shared it on Mathscope to get early adopters, and registered to Hackathon 2014 to build and receive feedbacks. It was optimistic then, with 70 early registrants (including 3 famous teachers), plus many supports.
+With the idea further developed, we shared it on Mathscope and registered to Hackathon 2014 as a chance to build the site. Back then, it was optimistic with 70 early registrants (including 3 famous teachers), and many supports.
 
 Nevertheless, [our hack][5] was a big failure, being commented as having no real innovation, badly designed and aimed at the wrong problem: _"Nobody wants to sit at the computer and learn in a book way. The problem of online learning is the lack of motivation, you have to get your users sit down and learn. The current design isn't so interesting."_
 
-As we thought the feedback makes sense, and the site had too many performance issues, we decided to pivoted and solve the **Problem of Motivation** instead. However, as schoolyear approached, I had to work mostly on my own: **re-design the site**, **being full-stack** and **optimize the performance**.
+As we thought the feedback makes sense, and the site had too many performance issues, we decided to pivot and solve the **Problem of Motivation** instead. However, as schoolyear approached, I had to work mostly on my own: **re-design the site**, **being full-stack** and **optimize the performance**.
 
 So I stepped back and secretly building the site (in the dark =))).
 
@@ -61,7 +61,7 @@ Here is the masterplan:
 
 In summary, the solution looks like an economy, where you have to provide goods (quality problems) and services (grading solutions) in order to get money and venture your reputation (elo-score). Also, the Government, represented by the moderators, is in charge of ensuring goods' quality (approving problems) and services' quality (resolving conflicts).
 
-But still there are many questions:
+Still, there are many questions:
 
 1. Contributing before joining contests, isn't it too hard for beginners?
 2. What about letting people share existed problems instead of building new ones?
@@ -69,7 +69,7 @@ But still there are many questions:
 4. What should be the specific amount in each step of the masterplan?
 5. Will the solution works?
 
-These are some of the doubts I drown in while building the project. With time, by not seeing anything new, I soon got tired and gave up. "Doubting does **kill** your motivation, mate!"
+These are some of the doubts I drown in while building the project. With time, by not seeing anything new, I soon got tired and gave up. _"Doubting does **kill** your motivation, mate!"_
 
 
 ## The Features
@@ -105,14 +105,14 @@ _Feature #4 and #6_: Due to a specific reason, we'll only have _"one-topic"_ com
 
 ## The Lessons
 
-I believe this failure is due to 4 reasons: 
+This failure is due to 4 reasons: 
 
-1. Pivoting based on outsiders' opinions. Up to know, I don't know whethere the decision to pivot was right or not.
+1. Pivoting based on outsiders' opinions. Up to now, I don't know whether pivoting was right or not.
 2. Too long doubting kills my motivation.
 3. Loosing commitment by not seeing results.
 4. Losing morale by working alone.
 
-The lessons I learnt:
+The lessons:
 
 1. The only base for pivoting decision is: **Your customer's opinions**.
 2. Motivation is **purpose-driven**. If you aim at code's sake, you'll soon get bored.
@@ -121,9 +121,9 @@ The lessons I learnt:
 
 Next time, I'll clearly define the solution, aim at learning whether it works, then go with short iterations of strong communication.
 
-Or should I take a look at this one: [The Lean Startup][15]?
+Or should I take a look at this one? [The Lean Startup][15],
 
-**Thanks for Reading!**
+**Thanks for Reading.**
 
 [1]: http://mathpedia.herokuapp.com/
 [2]: http://codeforces.com/
