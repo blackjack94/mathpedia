@@ -83,7 +83,7 @@ These are some of the doubts I drown in while building the project. With time, b
 
 _Feature #1 and #2_: These features are finished. Others are abandoned.
 
-_Feature #4 and #6_: Due to a specific reason, we'll only have _"one-topic"_ competitions. In other words, we provide _"Combinatorics Round 6"_ or _"Algebra Round 10"_ only, not a _"Maths Round 12"_. Therefore:
+_Feature #4 and #6_: Due to a specific reason, we only have _"one-topic"_ competitions. In other words, we provide _"Combinatorics Round 6"_ or _"Algebra Round 10"_ only, not a _"Maths Round 12"_. Therefore:
 
 - Rankings table are divided into 4 sub-fields: **Algebra**, **Combinatorics**, **Geometry** and **Number Theory**.
 - A user may have many titles: **Combinatorics Grandmaster**, **Algebra Specialist**, etc.
@@ -107,9 +107,9 @@ _Feature #4 and #6_: Due to a specific reason, we'll only have _"one-topic"_ com
 
 This failure is due to 4 reasons: 
 
-1. Pivoting based on outsiders' opinions. Up to now, I don't know whether pivoting was right or not.
+1. Pivoting based on outsiders' opinions. Up to now, I don't know whether pivoting was a right decision or not.
 2. Too long doubting kills my motivation.
-3. Loosing commitment by not seeing results.
+3. Loosing commitment by not seeing any results.
 4. Losing morale by working alone.
 
 The lessons:
@@ -121,7 +121,7 @@ The lessons:
 
 Next time, I'll clearly define the solution, aim at learning whether it works, then go with short iterations of strong communication.
 
-Or should I take a look at this one? [The Lean Startup][15],
+Or should I take a look at this one? [The Lean Startup][15].
 
 **Thanks for Reading.**
 
