@@ -1,4 +1,4 @@
-MathPedia
+Notes on MathPedia (written in July, 2016; quick revise January, 2020)
 =========
 
 **[MathPedia][1]** is an online platform for hosting & joining Mathematics competitions (think [Codeforces][2] for Mathematical Olympiads).
