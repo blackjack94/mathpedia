@@ -11,7 +11,6 @@ The project has been abandoned since 2015. Nevertheless, it had taught me many l
 
 - [The Story](#the-story)
 - [The Challenges](#the-challenges)
-<img src="http://d13iam57dikkc8.cloudfront.net/assets/logo-8dd182218aa08462ba3fb42dbb1d291a.png" alt="MathPedia Logo" width="300" align="right" />
 - [The Features](#the-features)
 - [Technical Details](#technical-details)
 - [The Lessons](#the-lessons)
