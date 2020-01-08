@@ -1,4 +1,4 @@
-Notes on MathPedia (written in July, 2016; quick revise January, 2020)
+Notes on MathPedia (written in July 2016; quick revise January 2020)
 =========
 
 **[MathPedia][1]** is an online platform for hosting & joining Mathematics competitions (think [Codeforces][2] for Mathematical Olympiads).
@@ -121,8 +121,6 @@ The lessons:
 Next time, I'll clearly define the solution, aim at learning whether it works, then go with short iterations of strong communication.
 
 Or should I take a look at this one? [The Lean Startup][15].
-
-**Thank you for taking your time reading this long note (written back in 2016).**
 
 [1]: http://mathpedia.herokuapp.com/
 [2]: http://codeforces.com/
